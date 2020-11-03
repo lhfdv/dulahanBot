@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "github:discordjs/opus",
     "discord.js": "^12.4.1",
     "discord.js-commando": "github:discordjs/Commando",
     "ffmpeg": "0.0.4",
