@@ -1,0 +1,18 @@
+        if(msg.content.toLowerCase().includes("João Pedro".toLowerCase())){
+            return msg.channel.send('Mapa');
+        }
+        if(msg.content.toLowerCase().includes("Mecânica Mata Jo".toLowerCase())){
+            return msg.channel.send('Morri');
+        }
+        if(msg.content.toLowerCase().includes("Ixnow".toLowerCase())){
+            return msg.channel.send('Que foi Victória');
+        }
+        if(msg.content.toLowerCase().includes("Fatos Harumísticos".toLowerCase())){
+            return msg.channel.send('Viera servindo Mocha Branco no Starbucks');
+        }
+        if(msg.content.toLowerCase().includes("-play".toLowerCase())){
+            return msg.channel.send('Musica das boas');
+        }
+        if(msg.content.toLowerCase().includes("Harumi".toLowerCase())){
+            client.commands.get('harumi').execute(msg, args);
+        }
