@@ -2,6 +2,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const PREFIX = '!';
 const ytdl = require("ytdl-core");
+const fs = require('fs');
+
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
 
 const http = require('http');http.createServer((req, res) => {
     res.writeHead(200, {
@@ -19,22 +29,17 @@ client.on('ready', () => {
 })
 
 client.on('message', msg =>{
-        let args = msg.content.substring(PREFIX.length).split(" ");
+        let args = msg.content.toString();
+        const command = args.toLowerCase();
 
-        if(msg.content.toLowerCase().includes("João Pedro".toLowerCase())){
-            return msg.channel.send('Mapa');
-        }
-        if(msg.content.toLowerCase().includes("Mecânica Mata Jo".toLowerCase())){
-            return msg.channel.send('Morri');
-        }
-        if(msg.content.toLowerCase().includes("Ixnow".toLowerCase())){
-            return msg.channel.send('Que foi Victória');
-        }
-        if(msg.content.toLowerCase().includes("Fatos Harumísticos".toLowerCase())){
-            return msg.channel.send('Viera servindo Mocha Branco no Starbucks');
-        }
-        if(msg.content.toLowerCase().includes("-play".toLowerCase())){
-            return msg.channel.send('Musica das boas');
+        try{
+            if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+                client.commands.get(command).execute(msg, args);
+            } else {
+                return;
+            }
+        } catch{
+            return;
         }
 
         switch (args[0]){
@@ -96,4 +101,4 @@ client.on('message', msg =>{
     
 )
 
-client.login(process.env.token);
+client.login(config.token);

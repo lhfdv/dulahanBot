@@ -1,7 +1,7 @@
 module.exports = {
-	name: 'ixnow',
-	description: 'Ixnow',
+	name: 'joão pedro',
+	description: 'João Pedro',
 	execute(msg) {
-        return msg.channel.send('Que foi Victória');
+        return msg.channel.send('Mapa');
 	},
 };
