@@ -25,7 +25,7 @@ var version = '1.2';
 var servers = {};
 
 client.on('ready', () => {
-    console.log('O pai tá online');
+    console.log('O pai tá online!');
 })
 
 client.on('message', msg =>{
@@ -73,7 +73,7 @@ client.on('message', msg =>{
                     play(connection, msg);
                 })
                 if(!args[1]){
-                    msg.channel.send("Cade o link pro pai?");
+                    msg.channel.send("Cade o link?");
                     return;
                 }
             break;
