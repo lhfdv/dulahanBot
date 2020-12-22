@@ -25,7 +25,8 @@ module.exports = {
 			'Aprende com o João Pedro, aprende a dar porrada nos outros',
 			'Verdade Harumi',
 			'KKKKKKKKKKKK ELES JOGAM JOGUINHOS',
-			'Mocha Branco é muito bom'
+			'Mocha Branco é muito bom',
+			'Sazória ou Sassoria?'
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
 		return msg.channel.send(response);
