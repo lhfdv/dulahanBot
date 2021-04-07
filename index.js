@@ -28,7 +28,7 @@ client.on('message', msg =>{
     const command = args.toLowerCase()
 
     try{
-        if ((args.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+        if ((!msg.author.bot){
             client.commands.get(command).execute(msg, args)
         } else return;
     } catch{ return; }
