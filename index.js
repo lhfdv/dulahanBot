@@ -28,10 +28,10 @@ client.on('message', msg =>{
     const command = args.toLowerCase()
 
     try{
-        if ((!msg.author.bot){
+        if (!msg.author.bot) {
             client.commands.get(command).execute(msg, args)
         } else return;
-    } catch{ return; }
+    } catch { return; }
 
 })
 
