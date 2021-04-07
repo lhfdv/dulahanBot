@@ -29,7 +29,7 @@ client.on('message', msg =>{
 
     try{
         if ((args.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
-            client.commands.get(command).execute(msg, args)
+            client.commands.includes(command).execute(msg, args)
         } else return;
     } catch{ return; }
 
