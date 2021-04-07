@@ -27,11 +27,23 @@ client.on('message', msg =>{
     let args = msg.content.toString()
     const command = args.toLowerCase()
 
+    class getMentionedUsernames {
+        getMentioned(msg){
+            let usernames = []
+        
+            msg.mentions.users.forEach(user => usernames.push(user.username))
+        
+            return `**${usernames.join('**, **')}**`
+        }
+      }
+    
+    getMentionedUsernames;
+
     try{
-        if (!msg.author.bot) {
+        if ((args.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
             client.commands.get(command).execute(msg, args)
         } else return;
-    } catch { return; }
+    } catch{ return; }
 
 })
 
