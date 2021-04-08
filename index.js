@@ -24,8 +24,8 @@ const http = require('http');http.createServer((req, res) => {
 client.on('ready', () => { console.log('O pai tá online!'); })
 
 client.on('message', msg =>{
-	if (message.author.bot) return;
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	if (msg.author.bot) return;
+	const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
     try{
