@@ -28,11 +28,11 @@ client.on('ready', () => {
 
 client.on('message', msg =>{
 	if (msg.author.bot) return;
-	const args = msg.content.toString().trim().split(/ +/);
+	let args = msg.content.toString().trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	
         try{
-            if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+            if ((msg.content.toLowerCase().includes(command.toLowerCase()))){
                 client.commands.get(command).execute(msg, args);
             } else {
                 return;
