@@ -5,8 +5,8 @@ module.exports =
 	execute(msg) { 
 	const taggedUser = msg.mentions.users.first();
 	return msg.channel.send({embed: 
-				 { color: 0x0099ff, 
+				 { color: orange, 
 				 description: `${msg.author} bonks ${taggedUser}`, 
-				image: { url: "https://media1.tenor.com/images/4dee992174206c66cb208bee31174b8d/tenor.gif?itemid=18805247" }
+				image: { url: 'https://media1.tenor.com/images/4dee992174206c66cb208bee31174b8d/tenor.gif' }
 	}});
 }};
