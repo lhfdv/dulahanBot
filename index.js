@@ -31,14 +31,9 @@ client.on('ready', () => {
 client.on('message', msg =>{
 	if ( msg.author.bot ) return;
 
-	if ( msg.content.length < 5 ) {
-		let args = msg.content.trim().split(/ +/);
-		const command = args.shift().toLowerCase();
-	} else {
-	        let args = msg.content.toString();
-        	const command = args.toLowerCase();
-	}
-	
+	let args = msg.content.trim().split(/ +/);
+	const command = args.shift().toLowerCase();
+
         try{
             client.commands.get(command).execute(msg, args);
         } catch {
@@ -47,17 +42,17 @@ client.on('message', msg =>{
 	
 });
 
-// client.on('message', msg =>{
-// 	if ( msg.author.bot || msg.content.length < 5 ) return;
+client.on('message', msg =>{
+	if ( msg.author.bot || msg.content.length < 5 ) return;
 	
-//         let args = msg.content.toString();
-//         const command = args.toLowerCase();
+        let args = msg.content.toString();
+        const command = args.toLowerCase();
 	
-//         try{
-// 		client.commands.get(command).execute(msg, args);
-//         } catch {
-//             return;
-//         }
-// });
+        try{
+		client.commands.get(command).execute(msg, args);
+        } catch {
+            	return;
+        }
+});
 
 client.login(process.env.token);
