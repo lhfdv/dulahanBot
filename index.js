@@ -28,9 +28,8 @@ client.on('ready', () => {
 
 client.on('message', msg =>{
 	if (msg.author.bot) return;
-	const args = msg.content.trim().split(/ +/);
-	const command = args.toString().toLowerCase();
-
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 	
         try{
             client.commands.get(command).execute(msg, args);
@@ -38,6 +37,21 @@ client.on('message', msg =>{
             return;
         }
 	
+});
+
+client.on('message', msg =>{
+	if (msg.author.bot) return;
+        let args = msg.content.toString();
+        const command = args.toLowerCase();
+        try{
+            if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+                client.commands.get(command).execute(msg, args);
+            } else {
+                return;
+            }
+        } catch{
+            return;
+        }
 });
 
 client.login(process.env.token);
