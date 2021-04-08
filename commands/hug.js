@@ -2,6 +2,7 @@ module.exports = {
 	name: 'hug',
 	description: 'hug',
 	async execute (msg) { 
+	const Discord = require("discord.js");
 	const fetch = require("node-fetch");
 	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para abraçar");
 	const taggedUser = msg.mentions.users.first();
