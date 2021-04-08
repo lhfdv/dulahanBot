@@ -23,7 +23,7 @@ const http = require('http');http.createServer((req, res) => {
 
 client.on('ready', () => { 
 	console.log('O pai tá online!'); 
-	bot.user.setActivity('Counter-Strike: Global Offensive');
+	client.user.setActivity('Counter-Strike: Global Offensive');
 })
 
 client.on('message', msg =>{
