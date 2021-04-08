@@ -3,6 +3,7 @@ module.exports =
 	name: 'hug',
 	description: 'hug',
 	async execute (msg) { 
+	const fetch = require("node-fetch");
 	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para abraçar");
 	const taggedUser = msg.mentions.users.first();
 	const description = `${msg.author} hugs ${taggedUser}`;
