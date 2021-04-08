@@ -24,7 +24,6 @@ const http = require('http');http.createServer((req, res) => {
 client.on('ready', () => { console.log('O pai tá online!'); })
 
 client.on('message', msg =>{
-    const taggedUser = msg.mentions.users.first();
     let args = msg.content.toString()
     const command = args.toLowerCase()
 
@@ -34,6 +33,6 @@ client.on('message', msg =>{
         } else return;
     } catch{ return; }
 
-})
+});
 
 client.login(process.env.token);
