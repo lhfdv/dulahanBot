@@ -11,7 +11,8 @@ module.exports = {
 	let json = await response.json();
 	let index = Math.floor(Math.random() * json.results.length);
 	const urlImg = json.results[index].url;
-	return msg.channel.send({embed: 
+	return msg.channel.send({embed:
 				 { color: 0xff9900, 
-				   description: description,}}, urlImg)
+				   description: description},
+				urlImg})
 	}};
