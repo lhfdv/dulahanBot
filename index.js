@@ -29,7 +29,7 @@ client.on('ready', () => {
 })
 
 client.on('message', msg =>{
-	if ( msg.author.bot ) return;
+	if ( msg.author.bot || msg.content.length > 5 ) return;
 
 	const args = msg.content.trim().split(/ +/);
 	const command = args.shift().toLowerCase();
