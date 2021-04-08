@@ -2,7 +2,10 @@ module.exports = {
 	name: 'victorizar',
 	description: 'victorizar',
 	execute(msg) {
-		const list = [ 'um torado' , 'uma aberração', 'um pebado', 'um monstro', 'uma cria de carioca', 'uma cria de jundiaiense', 'um esculhambado', 'um fajuto' ]
-		return msg.channel.send(`Harumi é ${list[Math.floor(Math.random() * list.length)]}!`);
+		    msg = msg.replace(/(?:s)/g, 'w');
+		    msg = msg.replace(/(?:S)/g, 'W');
+		    msg = msg.replace(/n([aeiou])/g, 'ny$1');
+		    msg = msg.replace(/N([aeiou])|N([AEIOU])/g, 'Ny$1');
+		return msg;
         }
 };
