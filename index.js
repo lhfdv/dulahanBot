@@ -27,12 +27,13 @@ client.on('ready', () => {
 })
 
 client.on('message', msg =>{
+	if (msg.author.bot) return;
 	    msg = msg.toString().replace(/[ÀÁÂÃÄÅ]/,"A");
 	    msg = msg.toString().replace(/[àáâãäå]/,"a");
 	    msg = msg.toString().replace(/[ÈÉÊË]/,"E");
 	    msg = msg.toString().replace(/[Ç]/,"C");
 	    msg = msg.toString().replace(/[ç]/,"c");
-	if (msg.author.bot) return;
+
  	let args = msg.content.toString().trim().split(/ +/);
  	const command = args.shift().toLowerCase();
 	
