@@ -1,6 +1,4 @@
 module.exports = {
-	name: 'hug',
-	description: 'hug',
 	async execute (msg) { 
 		
 	const Discord = require("discord.js");
@@ -29,3 +27,12 @@ module.exports = {
 	msgEmbed.react('🔁');
 		
 	}};
+
+module.exports.config = {
+    name: 'hug',
+    description: 'hug',
+    category: "Emotes",
+    usage: "hug",
+    accessableby: "Everyone",
+    aliases: ["abraçar"]
+  }
