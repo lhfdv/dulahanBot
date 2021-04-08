@@ -10,8 +10,9 @@ module.exports = {
 	let response = await fetch (url);
 	let json = await response.json();
 	let index = Math.floor(Math.random() * json.results.length);
+	const urlImg = json.results[index].url;
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				   description: description, 
-				   image: json.results[index].url,
+				   image: { url: urlImg },
 }})}};
