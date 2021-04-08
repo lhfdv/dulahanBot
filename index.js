@@ -29,10 +29,8 @@ client.on('ready', () => {
 client.on('message', msg =>{
 	if (msg.author.bot) return;
 	const args = msg.content.trim().split(/ +/);
-	const command = args.shift().toLowerCase();
-	
-	let args2 = msg.content.toString();
-        const command2 = args2.toLowerCase();
+	const command = args.toString().toLowerCase();
+
 	
         try{
             client.commands.get(command).execute(msg, args);
@@ -40,11 +38,6 @@ client.on('message', msg =>{
             return;
         }
 	
-	try{
-            client.commands.get(command2).execute(msg, args2);
-        } catch{
-            return;
-        }
 });
 
 client.login(process.env.token);
