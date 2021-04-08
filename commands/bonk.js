@@ -11,6 +11,8 @@ module.exports =
 		'https://i.imgur.com/uqzIUSX.gif',
 		'https://i.imgur.com/Ed6PnCm.gif',
 		'https://i.imgur.com/taqu0OF.gif',
+		'https://i.imgur.com/5pmg59F.gif',
+		'https://i.imgur.com/zhmacyK.gif',
 	]
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
