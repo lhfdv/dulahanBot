@@ -32,7 +32,7 @@ client.on('message', msg =>{
 	const command = args.shift().toLowerCase();
 	
 	let args2 = msg.content.toString();
-        const command2 = args.toLowerCase();
+        const command2 = args2.toLowerCase();
 	
         try{
             client.commands.get(command).execute(msg, args);
@@ -41,7 +41,7 @@ client.on('message', msg =>{
         }
 	
 	try{
-            client.commands.get(command2).execute(msg, args);
+            client.commands.get(command2).execute(msg, args2);
         } catch{
             return;
         }
