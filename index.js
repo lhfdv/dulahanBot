@@ -34,7 +34,7 @@ client.on('message', msg =>{
 	    msg = msg.toString().replace(/[Ç]/,"C");
 	    msg = msg.toString().replace(/[ç]/,"c");
 
- 	let args = msg.content.trim().split(/ +/);
+ 	let args = msg.content.split(/ +/);
  	const command = args.shift().toLowerCase();
 	
         try{
