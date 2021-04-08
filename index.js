@@ -33,7 +33,7 @@ client.on('message', msg =>{
 	
 	if(command === 'help'){
         client.commands.forEach(command => {
-            return ${command.name}`;
+            return `${command.name}`;
         })
 	}
 
