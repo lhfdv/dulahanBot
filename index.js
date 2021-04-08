@@ -40,7 +40,7 @@ client.on('message', msg =>{
 	
 	if ( msg.content === 'help' ) {
 		 const list = client.commands.forEach(command => {
-		    msg.channel.send(`${command.name}`);
+		    return msg.channel.send(`${command.name}`);
 		 });
 		return list;
 	}
