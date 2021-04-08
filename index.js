@@ -30,14 +30,16 @@ client.on('message', msg =>{
 	if (msg.author.bot) return;
 	const args = msg.content.toString().trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-
-    try{
-	    if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+	
+        try{
+            if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
                 client.commands.get(command).execute(msg, args);
             } else {
                 return;
-            } catch{ return; }
-
+            }
+        } catch{
+            return;
+        }
 });
 
 client.login(process.env.token);
