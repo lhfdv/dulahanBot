@@ -17,5 +17,5 @@ module.exports = {
             .setDescription(description)
             .setColor(embedcolor)
             .setImage(`${urlImg}`)
-        return message.channel.send({embed});	
+        return msg.channel.send({embed});	
 	}};
