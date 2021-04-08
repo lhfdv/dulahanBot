@@ -6,7 +6,7 @@ module.exports = {
         const embed = Discord.MessageEmbed();
         client.commands.forEach(command => {
             embed.addField(`${command.name}`, `${command.description}`, false);
-        }
-        msg.channel.send(embed);
+        })
+        return msg.channel.send(embed);
     }
 }
