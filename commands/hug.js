@@ -12,7 +12,7 @@ module.exports = {
 	let embedcolor = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
 	let index = Math.floor(Math.random() * json.results.length);
 	const urlImg = (json.results[index].media[0].gif.url);
-	const description = `${msg.author} hugs ${taggedUser}`;
+	const description = `${msg.author} abraça ${taggedUser}`;
 	const embed = new Discord.MessageEmbed()
             .setDescription(description)
             .setColor(embedcolor)
