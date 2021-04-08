@@ -28,7 +28,7 @@ client.on('ready', () => {
 
 client.on('message', msg =>{
 	if ( msg.author.bot ) return;
-	if ( msg.content.length < 5 ) {
+	if ( msg.content.length > 5 ) {
 		let args = msg.content.toString();
 		const command = args.toLowerCase();
 	} else {
