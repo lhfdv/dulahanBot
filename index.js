@@ -10,9 +10,6 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-let avoidRepeat = 1;
-avoidRepeat--
-
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
@@ -32,10 +29,15 @@ client.on('ready', () => {
 })
 
 client.on('message', msg =>{
-	if ( msg.author.bot || avoidRepeat != 0 ) return;
+	if ( msg.author.bot ) return;
 
-	const args = msg.content.trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+	if ( msg.content.length < 5 ) {
+		let args = msg.content.trim().split(/ +/);
+		const command = args.shift().toLowerCase();
+	} else {
+	        let args = msg.content.toString();
+        	const command = args.toLowerCase();
+	}
 	
         try{
             client.commands.get(command).execute(msg, args);
@@ -46,17 +48,17 @@ client.on('message', msg =>{
 	
 });
 
-client.on('message', msg =>{
-	if ( msg.author.bot || msg.content.length < 5 || avoidRepeat != 0 ) return;
+// client.on('message', msg =>{
+// 	if ( msg.author.bot || msg.content.length < 5 ) return;
 	
-        let args = msg.content.toString();
-        const command = args.toLowerCase();
+//         let args = msg.content.toString();
+//         const command = args.toLowerCase();
 	
-        try{
-		client.commands.get(command).execute(msg, args);
-        } catch {
-            return;
-        }
-});
+//         try{
+// 		client.commands.get(command).execute(msg, args);
+//         } catch {
+//             return;
+//         }
+// });
 
 client.login(process.env.token);
