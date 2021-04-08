@@ -10,6 +10,6 @@ module.exports =
 	let url = `https://api.tenor.com/v1/search?q=anime_hug&key=${process.env.TENORKEY}&limit=10`;
 	let response = await fetch (url);
 	let json = await response.json();
-	let index = Math.floor(Math.random() * result.results.length);
+	let index = Math.floor(Math.random() * json.results.length);
 	return msg.channel.send(json.results[index].url);
 }};
