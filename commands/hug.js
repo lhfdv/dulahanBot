@@ -13,6 +13,5 @@ module.exports = {
 	const urlImg = json.results[index].url;
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
-				   description: description, 
-				   image: { url: urlImg },
-}})}};
+				   description: description,}}, urlImg)
+	}};
