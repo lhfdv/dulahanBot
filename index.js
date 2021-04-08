@@ -32,11 +32,9 @@ client.on('message', msg =>{
 	const command = args.shift().toLowerCase();
 	
 	if(command === 'help'){
-	const embed = Discord.MessageEmbed();
         client.commands.forEach(command => {
-            embed.addField(`${command.name}`, `${command.description}`, false);
+            return ${command.name}`;
         })
-        return msg.channel.send(embed);
 	}
 
     try{
