@@ -30,12 +30,6 @@ client.on('message', msg =>{
 	if (msg.author.bot) return;
 	const args = msg.content.trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-	
-	if(command === 'help'){
-        client.commands.forEach(command => {
-            return msg.channel.send(`${command.name}`);
-        })
-	}
 
     try{
         client.commands.get(command).execute(msg, args);
