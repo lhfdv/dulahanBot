@@ -10,7 +10,8 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-let avoidRepeat = 0;
+let avoidRepeat = 1;
+avoidRepeat--
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -56,8 +57,6 @@ client.on('message', msg =>{
         } catch {
             return;
         }
-	
-	avoiRepeat--
 });
 
 client.login(process.env.token);
