@@ -13,9 +13,9 @@ module.exports = {
 	let index = Math.floor(Math.random() * json.results.length);
 	const urlImg = json.results[index].url;
 	const description = `${msg.author} hugs ${taggedUser} ${urlImg}`;
-	const embed = new Discord.RichEmbed()
+	const embed = new Discord.MessageEmbed()
             .setDescription(description)
             .setColor(embedcolor)
             .setImage(`${imgUrl}`)
-        return message.channel.send({embed: embed});	
+        return message.channel.send({embed});	
 	}};
