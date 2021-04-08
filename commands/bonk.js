@@ -10,6 +10,6 @@ module.exports =
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				   description: description, 
-				   image: { img },
+				   image: img,
 	}});
 }};
