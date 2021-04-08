@@ -41,7 +41,7 @@ client.on('message', msg =>{
 });
 
 client.on('message', msg =>{
-	if ( msg.author.bot || msg.content === 'ping'  || msg.content === 'help' ) return;
+	if ( msg.author.bot || msg.content.lenght < 5 ) return;
 	
         let args = msg.content.toString();
         const command = args.toLowerCase();
