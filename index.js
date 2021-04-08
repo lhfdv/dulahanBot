@@ -10,6 +10,8 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+let avoidRepeat = 0;
+
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
@@ -29,13 +31,14 @@ client.on('ready', () => {
 })
 
 client.on('message', msg =>{
-	if ( msg.author.bot || msg.content === 'Harumi' ) return;
+	if ( msg.author.bot || avoidRepeat != 0 ) return;
 
 	const args = msg.content.trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	
         try{
             client.commands.get(command).execute(msg, args);
+	    avoidRepeat++
         } catch {
             return;
         }
@@ -43,7 +46,7 @@ client.on('message', msg =>{
 });
 
 client.on('message', msg =>{
-	if ( msg.author.bot || msg.content.length < 5 ) return;
+	if ( msg.author.bot || msg.content.length < 5 || avoidRepeat != 0 ) return;
 	
         let args = msg.content.toString();
         const command = args.toLowerCase();
