@@ -16,5 +16,5 @@ module.exports = {
 	const embed = new Discord.MessageEmbed()
             .setDescription(description)
             .setColor(embedcolor)
-        return msg.channel.send({embed}, urlImg);	
+        return msg.channel.send({embed}), msg.channel.send(urlImg);	
 	}};
