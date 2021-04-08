@@ -15,6 +15,6 @@ module.exports =
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				   description: description, 
-				   image: { url: rnd_imgs[Math.floor(Math.random() * rnd_imgs.length) },
+				   image: { url: rnd_imgs[Math.floor(Math.random() * rnd_imgs.length)] },
 	}});
 }};
