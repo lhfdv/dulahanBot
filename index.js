@@ -28,12 +28,15 @@ client.on('ready', () => {
 
 client.on('message', msg =>{
 	if (msg.author.bot) return;
-	const args = msg.content.trim().split(/ +/);
-	const command = args.shift().toLowerCase().toString();
+	const args = msg.content.toString().trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
     try{
-        client.commands.get(command).execute(msg, args);
-    } catch{ return; }
+	    if ((msg.content.toLowerCase().includes(command.toLowerCase())) && !msg.author.bot){
+                client.commands.get(command).execute(msg, args);
+            } else {
+                return;
+            } catch{ return; }
 
 });
 
