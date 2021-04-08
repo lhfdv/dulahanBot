@@ -1,10 +1,9 @@
-const Discord = require('discord.js');
-
 module.exports = 
 	{
 	name: 'bonk',
 	description: 'bonk',
 	execute(msg) { 
+	const Discord = require('discord.js');
 	const taggedUser = msg.mentions.users.first();
 	const description = `${msg.author} bonks ${taggedUser}`;
 	const bonkEmbed = new Discord.MessageEmbed()
