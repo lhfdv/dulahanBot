@@ -7,6 +7,6 @@ module.exports =
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				 description: `${msg.author} bonks ${taggedUser}`, 
-				image: { url: 'https://i.imgur.com/uqzIUSX.gifv' }
+				image: { url: 'https://i.imgur.com/uqzIUSX.gif' }
 	}});
 }};
