@@ -18,6 +18,5 @@ module.exports = {
             .setColor(embedcolor)
 	    .setImage(`${urlImg}`)
 	let msgEmbed = await msg.channel.send({embed})
-	let msgEmbed1 = await msg.channel.send(urlImg);
-        return msgEmbed, msgEmbed1.react('🔁');
+        return msgEmbed.react('🔁');
 	}};
