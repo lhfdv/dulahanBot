@@ -16,5 +16,6 @@ module.exports = {
 	const embed = new Discord.MessageEmbed()
             .setDescription(description)
             .setColor(embedcolor)
-        return msg.channel.send({embed}), msg.channel.send(urlImg), await msg.react('🔁');
+	let msgEmbed = await msg.channel.send({embed}), msg.channel.send(urlImg);
+        return msgEmbed.react('🔁');
 	}};
