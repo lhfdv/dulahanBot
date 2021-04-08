@@ -1,8 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const PREFIX = '!';
-const ytdl = require("ytdl-core");
 const fs = require('fs');
+
+// const PREFIX = '!';
+// const ytdl = require("ytdl-core");
+
 
 client.commands = new Discord.Collection();
 
