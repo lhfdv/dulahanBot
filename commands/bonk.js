@@ -3,7 +3,7 @@ module.exports =
 	name: 'bonk',
 	description: 'bonk',
 	execute(msg) { 
-	if(!msg.mentions.users.first()) return msg.channel.send("Erro");
+	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
 	const taggedUser = msg.mentions.users.first();
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
