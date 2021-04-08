@@ -29,7 +29,7 @@ client.on('ready', () => {
 client.on('message', msg =>{
 	if (msg.author.bot) return;
 	const args = msg.content.trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+	const command = args.toLowerCase();
 	
         try{
             client.commands.get(command).execute(msg, args);
