@@ -38,13 +38,6 @@ client.on('message', msg =>{
             return;
         }
 	
-	if ( msg.content === 'help' ) {
-		 const list = client.commands.forEach(command => {
-		    return msg.channel.send(`${command.name}`);
-		 });
-		return list;
-	}
-	
 });
 
 client.on('message', msg =>{
@@ -52,6 +45,7 @@ client.on('message', msg =>{
 	
         let args = msg.content.toString();
         const command = args.toLowerCase();
+	
         try{
 		client.commands.get(command).execute(msg, args);
         } catch {
