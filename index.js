@@ -21,7 +21,10 @@ const http = require('http');http.createServer((req, res) => {
         res.end();
     }).listen(4000);
 
-client.on('ready', () => { console.log('O pai tá online!'); })
+client.on('ready', () => { 
+	console.log('O pai tá online!'); 
+	bot.user.setActivity('Counter-Strike: Global Offensive');
+})
 
 client.on('message', msg =>{
 	if (msg.author.bot) return;
