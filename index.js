@@ -38,7 +38,7 @@ client.on('message', msg =>{
             return;
         }
 	
-	if ( msg === 'help' ) {
+	if ( msg.content === 'help' ) {
 		 const list = client.commands.forEach(command => {
 		    msg.channel.send(`${command.name}`);
 		 });
@@ -48,7 +48,7 @@ client.on('message', msg =>{
 });
 
 client.on('message', msg =>{
-	if ( msg.author.bot || msg === 'ping' ) return;
+	if ( msg.author.bot || msg.content === 'ping' ) return;
 	
         let args = msg.content.toString();
         const command = args.toLowerCase();
