@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: 'View a full list of commands',
-    execute(msg) {
+    execute(msg, client) {
         const Discord = require('discord.js');
         const embed = Discord.MessageEmbed();
         client.commands.forEach(command => {
