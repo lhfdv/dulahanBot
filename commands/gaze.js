@@ -15,7 +15,6 @@
 module.exports = {
 	name: 'viera gaze',
 	description: 'viera gaze',
-	execute(msg) { 
-	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
+	execute (msg) { 
 	return msg.channel.send('teste');
 }};
