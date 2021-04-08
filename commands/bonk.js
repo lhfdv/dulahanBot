@@ -5,7 +5,7 @@ module.exports =
 	execute(msg) { 
 	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
 	const taggedUser = msg.mentions.users.first();
-	const description = `${msg.author} bonks ${taggedUser}`;
+	const description = `${msg.author} bonka ${taggedUser}`;
 	const rnd_imgs = [
 		'https://i.imgur.com/uqzIUSX.gif',
 		'https://i.imgur.com/Ed6PnCm.gif',
