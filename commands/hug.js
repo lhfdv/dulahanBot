@@ -1,5 +1,4 @@
-module.exports = 
-	{
+module.exports = {
 	name: 'hug',
 	description: 'hug',
 	async execute (msg) { 
@@ -11,5 +10,8 @@ module.exports =
 	let response = await fetch (url);
 	let json = await response.json();
 	let index = Math.floor(Math.random() * json.results.length);
-	return msg.channel.send(json.results[index].url);
+	return msg.channel.send({embed: 
+				 { color: 0xff9900, 
+				   description: description, 
+				   image: { url: json.results[index].url });
 }};
