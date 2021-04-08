@@ -13,5 +13,5 @@ module.exports = {
 	return msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				   description: description, 
-				   image: { url: json.results[index].url });
-}};
+				   image: { url: json.results[index].url },
+}})}};
