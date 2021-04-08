@@ -41,7 +41,6 @@ client.on('message', msg =>{
 	
         try{
             client.commands.get(command).execute(msg, args);
-	    avoidRepeat++
         } catch {
             return;
         }
