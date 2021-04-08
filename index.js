@@ -56,6 +56,8 @@ client.on('message', msg =>{
         } catch {
             return;
         }
+	
+	avoiRepeat--
 });
 
 client.login(process.env.token);
