@@ -1,16 +1,16 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
+// require('dotenv').config();
 
 // const PREFIX = '!';
 // const ytdl = require("ytdl-core");
-
 
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-for (const file of commandFiles) {
+for ( const file of commandFiles ) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
@@ -28,31 +28,27 @@ client.on('ready', () => {
 	client.user.setActivity('Counter-Strike: Global Offensive');
 })
 
-client.on('message', msg =>{
-	if ( msg.author.bot || !msg.content.includes('@') ) return;
+client.on('message', msg => {
 
-	let args = msg.content.trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+	if ( msg.author.bot ) return
 
-        try{
-            client.commands.get(command).execute(msg, args);
-        } catch {
-            return;
-        }
+    let command = ''
+    let args = ''
+
+    if (msg.content.includes('@')){
+        args = msg.content.trim().split(/ +/)
+        command = args.shift().toLowerCase()
+    } else {
+        args = msg.content.toString()
+        command = args.toLowerCase()
+    }
+
+    try{
+        client.commands.get(command).execute(msg, args);
+    } catch {
+        return
+    }
 	
 });
 
-client.on('message', msg =>{
-	if ( msg.author.bot ) return;
-	
-        let args = msg.content.toString();
-        const command = args.toLowerCase();
-	
-        try{
-		client.commands.get(command).execute(msg, args);
-        } catch {
-            	return;
-        }
-});
-
-client.login(process.env.token);
+client.login(process.env.token)

@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "discord.js-collector": "^1.8.9",
     "discord.js-commando": "github:discordjs/Commando",
+    "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "module-alias": "^2.2.2",
     "mongoose": "^5.10.11",
+    "node.js": "0.0.1-security",
     "redis": "^3.0.2",
     "sqlite": "^4.0.15",
     "utf-8-validate": "^5.0.3",

@@ -2,6 +2,7 @@ module.exports = {
 	name: 'fatos harumisticos',
 	description: 'Fatos Harumisticos',
 	execute(msg) {
+		console.log('test')
 		const phrases = [
 			'Minha Viera Marronzinha :notes:',
 			'Coisa boa é Viera servindo Mocha Branco no Starbucks',
