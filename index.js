@@ -25,7 +25,7 @@ const http = require('http');http.createServer((req, res) => {
 
 client.on('ready', () => { 
 	console.log('O pai tá online!'); 
-	client.user.setActivity('Counter-Strike: Global Offensive');
+	client.user.setActivity('theHunter: Call of the Wild');
 })
 
 client.on('message', msg => {
