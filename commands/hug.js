@@ -5,7 +5,7 @@ module.exports = {
     usage: "hug",
     accessableby: "Everyone",
     aliases: ["abraçar"],
-	async execute (msg) { 
+	async execute (msg, args) { 
 
 	const Discord = require("discord.js");
 	const fetch = require("node-fetch");

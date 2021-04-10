@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'ixnow',
 	description: 'Ixnow',
-	execute(msg) {
+	execute (msg) {
         msg.channel.send('Que foi Victória');
 	},
 };

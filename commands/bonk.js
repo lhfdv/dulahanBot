@@ -14,7 +14,7 @@ module.exports =
 		'https://i.imgur.com/zhmacyK.gif',
 		'https://i.imgur.com/NwXXKB2.gif'
 	]
-	return msg.channel.send({embed: 
+	msg.channel.send({embed: 
 				 { color: 0xff9900, 
 				   description: description, 
 				   image: { url: rnd_imgs[Math.floor(Math.random() * rnd_imgs.length)] },

@@ -1,8 +1,7 @@
 module.exports = {
 	name: 'viera gaze',
 	description: 'viera gaze',
-	execute(msg) {
-	console.log('test')
+	execute (msg) {
 	msg.channel.send({embed: 
 		{ color: 0x783F04, 
 		  description: `Harumi's Viera gaze at the sheer stupidity of the situation`, 
