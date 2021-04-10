@@ -106,11 +106,11 @@ const categories = [
   module.exports = {
     name: 'test',
     description: 'Overview of all commands!',
-    execute(message, args) {
-      const embed = new Discord.MessageEmbed()
+    execute(msg, args) {
+      const embed = new Discord.msgEmbed()
         .setColor('#171b20')
         .setTitle('Help')
-        .setDescription('React to the message to see commands of a specific category!')
+        .setDescription('React to the msg to see commands of a specific category!')
         .addFields(
           // add fields for each category
           categories.map((cat) => ({
@@ -118,19 +118,19 @@ const categories = [
             value: '\u200b',
           }))
         )
-        .setFooter(message.author.username)
+        .setFooter(msg.author.username)
         .setTimestamp();
   
-      message.channel.send(embed).then((embedMsg) => {
+      msg.channel.send(embed).then((embedMsg) => {
         // send reactions for each emojis
         const emojis = categories.map((cat) => cat.emoji);
         emojis.forEach((emoji) => embedMsg.react(emoji));
   
         // the filter checks if the reaction emoji is in the categories
         // it also checks if the person who reacted shares the same id
-        // as the author of the original message
+        // as the author of the original msg
         const filter = (reaction, user) =>
-          emojis.includes(reaction.emoji.name) && user.id === message.author.id;
+          emojis.includes(reaction.emoji.name) && user.id === msg.author.id;
   
         const collector = embedMsg.createReactionCollector(filter, {
           // max number of reactions is the number of categories
@@ -147,28 +147,28 @@ const categories = [
           );
   
           if (!selectedCategory) {
-            return message.channel.send('Oops, there was an error... Try again?!');
+            return msg.channel.send('Oops, there was an error... Try again?!');
           }
   
-          const embed = new Discord.MessageEmbed()
+          const embed = new Discord.msgEmbed()
             .setColor(selectedCategory.color)
             .setTitle(selectedCategory.title)
             .setDescription(selectedCategory.description)
             .addFields(selectedCategory.commands)
-            .setFooter(message.author.username)
+            .setFooter(msg.author.username)
             .setTimestamp();
   
-          message.channel.send(embed);
+          msg.channel.send(embed);
         });
   
         collector.on('end', (collected, reason) => {
           // reactions are no longer collected
           // if the user clicked on every available emoji
           if (reason === 'limit')
-            return message.channel.send(`You've checked every emoji, ${message.author}. I won't accept any more reactions.`);
+            return msg.channel.send(`You've checked every emoji, ${msg.author}. I won't accept any more reactions.`);
   
           // if it's timeout
-          return message.channel.send(`It's been a minute now, so I won't accept any more reactions.`);
+          return msg.channel.send(`It's been a minute now, so I won't accept any more reactions.`);
         });
       });
     },
