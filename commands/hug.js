@@ -1,50 +1,81 @@
+const Discord = require('discord.js');
+const fetch = require('node-fetch');
+
 module.exports = {
 	name: 'hug',
-    description: 'hug',
-    category: "Emotes",
-    usage: "hug",
-    accessableby: "Everyone",
-    aliases: ["abraçar"],
-	async execute (msg, args) { 
+    description: 'Hug someone',
+    category: 'Emotes',
+    usage: 'hug',
+    accessableby: 'Everyone',
+    aliases: ['abraçar'],
+		async execute (msg, args) { 
 
-	const Discord = require("discord.js");
-	const fetch = require("node-fetch");
+		if(!msg.mentions.users.first()) return msg.channel.send('ERRO: Sem menção para abraçar');
 
-	if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para abraçar");
+		//Tenor API
+		let url = `https://api.tenor.com/v1/search?q=anime+hug&key=${process.env.TENORKEY}&limit=50`;
+		let response = await fetch (url);
+		let json = await response.json();
 
-	const taggedUser = msg.mentions.users.first();
-	let embedcolor = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
+		const taggedUser = msg.mentions.users.first();
+		const description = `${msg.author} abraça ${taggedUser}`;
+		const index = Math.floor(Math.random() * json.results.length);
+		const indexAnswer = Math.floor(Math.random() * json.results.length);
+		const urlImg = (json.results[index].media[0].gif.url);
+		const urlImgAnswer = (json.results[indexAnswer].media[0].gif.url);
+		const embedColor = '#' + ('000000' + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
+		const embedColorAnswer = '#' + ('000000' + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
 
-	let url = `https://api.tenor.com/v1/search?q=anime_hug&key=${process.env.TENORKEY}&limit=50`;
-	let response = await fetch (url);
-	let json = await response.json();
+		//Model for answers
+		const answer = [{
+			emoji: '🔁',
+			name: 'Hug Answer',
+			color: `${embedColorAnswer}`,
+			description: `${taggedUser} abraça ${msg.author} de volta!`,
+			image: `${urlImgAnswer}`,
+		}]
 
-	let index = Math.floor(Math.random() * json.results.length);
-	const urlImg = (json.results[index].media[0].gif.url);
-	const description = `${msg.author} abraça ${taggedUser}`;
+		//Model for the original message
+		const embed = new Discord.MessageEmbed()
+			.setDescription(description)
+			.setColor(embedColor)
+			.setImage(`${urlImg}`)
 
-	const embed = new Discord.MessageEmbed()
-        .setDescription(description)
-        .setColor(embedcolor)
-	    .setImage(`${urlImg}`)
+		msg.channel.send(embed).then((embedMsg) => {
+			//Send reactions for each emojis
+			const emojis = answer.map((cat) => cat.emoji);
+			emojis.forEach((emoji) => embedMsg.react(emoji));
+	
+			//The filter checks if the reaction emoji is in the category
+			//It also checks if the person who reacted shares the same id
+			//As the author of the original msg
+			const filter = (reaction, user) =>
+				emojis.includes(reaction.emoji.name) && user.id === taggedUser.id;
+	
+			const collector = embedMsg.createReactionCollector(filter, {
+				//Max number of reactions is the number of category
+				max: emojis.length,
+				//It won't accept reactions after 60 seconds
+				//Optional, you can remove/change it
+				time: 120000,
+			});
+		
+			collector.on('collect', (reaction, user) => {
+			//Find the category by emoji
+				const selectedAnswer = answer.find(
+					(category) => category.emoji === reaction.emoji.name,
+			);
+		
+			if (!selectedAnswer) {
+				msg.channel.send('Erro');
+			}
 
-	let msgEmbed = await msg.channel.send({embed})
+			const embed = new Discord.MessageEmbed()
+				.setColor(selectedAnswer.color)
+				.setDescription(selectedAnswer.description)
+				.setImage(selectedAnswer.image)
 
-	msgEmbed
-
-	// const filter = (reaction, user) => {
-	// 	console.log('test')
-	// 	return reaction.emoji.name === '🔁' && user.id === msg.author.id;
-	// };
-
-	// const collector = msg.createReactionCollector(filter, { time: 10000 });
-
-	// collector.on('collect', (reaction, user) => {
-	// 	console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
-	// });
-
-	// collector.on('end', collected => {
-	// 	console.log(`Collected ${collected.size} items`);
-	// });
-
+			msg.channel.send(embed);
+		});
+	});
 }};
