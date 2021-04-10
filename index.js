@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-// require('dotenv').config();
+require('dotenv').config();
 
 // const PREFIX = '!';
 // const ytdl = require("ytdl-core");
@@ -16,9 +16,7 @@ for ( const file of commandFiles ) {
 }
 
 const http = require('http');http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-type': 'text/plain'
-    });
+    res.writeHead(200, { 'Content-type': 'text/plain' });
         res.write('Hey');
         res.end();
     }).listen(4000);
@@ -30,7 +28,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 
-	if ( msg.author.bot ) return
+    if ( msg.author.bot ) return
 
     let command = ''
     let args = ''
@@ -38,7 +36,7 @@ client.on('message', msg => {
     if ( msg.content.includes('@') ) {
         args = msg.content.trim().split(/ +/)
         command = args.shift().toLowerCase()
-    } else if(msg.content.toLowerCase().includes('victorizar')){
+    } else if ( msg.content.toLowerCase().includes('victorizar') ){
         client.commands.get('victorizar').execute(msg, args);
     } else {
         args = msg.content.toString()
