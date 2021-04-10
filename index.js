@@ -35,9 +35,11 @@ client.on('message', msg => {
     let command = ''
     let args = ''
 
-    if (msg.content.includes('@')){
+    if ( msg.content.includes('@') ) {
         args = msg.content.trim().split(/ +/)
         command = args.shift().toLowerCase()
+    } else if(msg.content.toLowerCase().includes('victorizar')){
+        client.commands.get('victorizar').execute(msg, args);
     } else {
         args = msg.content.toString()
         command = args.toLowerCase()

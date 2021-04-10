@@ -17,6 +17,7 @@
     "module-alias": "^2.2.2",
     "mongoose": "^5.10.11",
     "node.js": "0.0.1-security",
+    "nodejs": "0.0.0",
     "redis": "^3.0.2",
     "sqlite": "^4.0.15",
     "utf-8-validate": "^5.0.3",
