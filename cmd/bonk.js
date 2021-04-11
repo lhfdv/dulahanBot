@@ -8,6 +8,7 @@ module.exports = {
 		const taggedUser = msg.mentions.users.first();
 		const descriptionSelf = `${msg.author} se bonka`;
 		const descriptionTagged = `${msg.author} bonka ${taggedUser}`;
+
 		const imgListBonk = [
 			'https://i.imgur.com/uqzIUSX.gif',
 			'https://i.imgur.com/Ed6PnCm.gif',
@@ -17,23 +18,25 @@ module.exports = {
 			'https://i.imgur.com/NwXXKB2.gif',
 			'https://i.imgur.com/RBBeQFh.gif'
 		]
+		
 		const imgListSelfBonk = [
 			'https://i.imgur.com/jxCrxhk.gif',
 			'https://i.imgur.com/O3lSTuc.gif',
 			'https://i.imgur.com/KqkH7L1.gif',
-			'https://i.imgur.com/FjnNygg.gif',
+			'https://i.imgur.com/FjnNygg.gif'
 		]
 
-		if(taggedUser.id === msg.author.id || !taggedUser.id){
-			msg.channel.send({embed: { 
+		if ( taggedUser.id === msg.author.id || !taggedUser.id ) {
+			msg.channel.send({ embed: { 
 			color: 0xff9900, 
 			description: descriptionSelf, 
 			image: { url: imgListSelfBonk[Math.floor(Math.random() * imgListSelfBonk.length)] },
+			}})
 		} else {
-			msg.channel.send({embed: { 
+			msg.channel.send({ embed: { 
 			color: 0xff9900, 
 			description: descriptionTagged, 
 			image: { url: imgListBonk[Math.floor(Math.random() * imgListBonk.length)] },
-			}});			
+			}})	
 		}
 }};
