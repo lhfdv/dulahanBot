@@ -28,9 +28,9 @@ client.on('ready', () => {
 	client.user.setActivity('theHunter: Call of the Wild');
 })
 
-client.on('ready', async () => {
-    messageCount(client);
-})
+// client.on('ready', async () => {
+//     messageCount(client);
+// })
 
 client.on('message', msg => {
 
