@@ -15,14 +15,14 @@ module.exports = {
 			'https://i.imgur.com/5pmg59F.gif',
 			'https://i.imgur.com/zhmacyK.gif',
 			'https://i.imgur.com/NwXXKB2.gif',
-			'https://i.imgur.com/RBBeQFh.gif',
+			'https://i.imgur.com/RBBeQFh.gif'
 		]
-		const imgListSelfBonk = {
+		const imgListSelfBonk = [
 			'https://i.imgur.com/jxCrxhk.gif',
 			'https://i.imgur.com/O3lSTuc.gif',
 			'https://i.imgur.com/KqkH7L1.gif',
 			'https://i.imgur.com/FjnNygg.gif',
-		}
+		]
 
 		if(taggedUser.id === msg.author.id || !taggedUser.id){
 			msg.channel.send({embed: { 
