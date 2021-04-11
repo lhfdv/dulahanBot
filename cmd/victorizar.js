@@ -13,7 +13,7 @@ module.exports = {
         msgVic = msgVic.replace(/(?:ixxo)/gi, 'isso')
         msgVic = msgVic.replace(/(?:ixxe)/gi, 'esse')
         msgVic = msgVic.replace(/(?:ixxa)/gi, 'essa')
-        msgVic = msgVic.replace(/(?:ixtex)/gi, 'estis')        
+        msgVic = msgVic.replace(/(?:ixtex)/gi, 'estis')
         msg.channel.send(msgVic);
     }
 };

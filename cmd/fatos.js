@@ -21,7 +21,6 @@ module.exports = {
 			'as vezes penso',
 			'kkkkk eles jogam joguinho de tiro',
 			'pera que ta chovendo',
-			'Bom? Bom pra quem?',
 			'Aprende com o João Pedro, aprende a dar porrada nos outros',
 			'Verdade Harumi',
 			'KKKKKKKKKKKK ELES JOGAM JOGUINHOS',

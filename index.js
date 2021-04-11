@@ -3,15 +3,17 @@ const client = new Discord.Client();
 const fs = require('fs');
 require('dotenv').config();
 
+const messageCount = require('./message-counter')
+
 // const PREFIX = '!';
 // const ytdl = require("ytdl-core");
 
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./cmd').filter(file => file.endsWith('.js'));
 
 for ( const file of commandFiles ) {
-    const command = require(`./commands/${file}`);
+    const command = require(`./cmd/${file}`);
     client.commands.set(command.name, command);
 }
 
@@ -24,6 +26,10 @@ const http = require('http');http.createServer((req, res) => {
 client.on('ready', () => { 
 	console.log('O pai tá online!'); 
 	client.user.setActivity('theHunter: Call of the Wild');
+})
+
+client.on('ready', async () => {
+    messageCount(client);
 })
 
 client.on('message', msg => {
