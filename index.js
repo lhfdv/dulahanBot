@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 require('dotenv').config();
 
-const messageCount = require('./modules/message-counter')
+// const messageCount = require('./modules/message-counter')
 
 // const PREFIX = '!';
 // const ytdl = require("ytdl-core");
