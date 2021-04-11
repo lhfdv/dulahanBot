@@ -3,7 +3,7 @@ module.exports = {
 	description: 'bonk',
 	execute(msg) { 
 
-		// if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
+		if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
 
 		const taggedUser = msg.mentions.users.first();
 		const descriptionSelf = `${msg.author} se bonka`;
@@ -18,7 +18,7 @@ module.exports = {
 			'https://i.imgur.com/NwXXKB2.gif',
 			'https://i.imgur.com/RBBeQFh.gif'
 		]
-		
+
 		const imgListSelfBonk = [
 			'https://i.imgur.com/jxCrxhk.gif',
 			'https://i.imgur.com/O3lSTuc.gif',

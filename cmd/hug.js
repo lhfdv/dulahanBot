@@ -10,14 +10,17 @@ module.exports = {
     aliases: ['abraçar'],
 		async execute (msg, args) { 
 
-		if(!msg.mentions.users.first()) return msg.channel.send('ERRO: Sem menção para abraçar');
+		const taggedUser = msg.mentions.users.first();
+
+		if(!taggedUser.id)) return msg.channel.send('ERRO: Sem menção para abraçar');
+
+		if(taggedUser.id === msg.author.id) return msg.channel.send('ERRO: Escolha outro usuário para abraçar');
 
 		//Tenor API
 		let url = `https://api.tenor.com/v1/search?q=anime+hug&key=${process.env.TENORKEY}&limit=50`;
 		let response = await fetch (url);
 		let json = await response.json();
 
-		const taggedUser = msg.mentions.users.first();
 		const description = `${msg.author} abraça ${taggedUser}`;
 		const index = Math.floor(Math.random() * json.results.length);
 		const indexAnswer = Math.floor(Math.random() * json.results.length);
