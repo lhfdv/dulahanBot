@@ -12,7 +12,7 @@ module.exports = {
 
 		const taggedUser = msg.mentions.users.first();
 
-		if(!taggedUser.id)) return msg.channel.send('ERRO: Sem menção para abraçar');
+		if(!taggedUser.id) return msg.channel.send('ERRO: Sem menção para abraçar');
 
 		if(taggedUser.id === msg.author.id) return msg.channel.send('ERRO: Escolha outro usuário para abraçar');
 
