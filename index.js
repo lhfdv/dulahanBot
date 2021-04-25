@@ -28,12 +28,12 @@ const http = require('http');http.createServer((req, res) => {
 client.on('ready', () => { 
 	console.log('O pai tá online!'); 
 	client.user.setActivity('theHunter: Call of the Wild');
-    await mongo().then(mongoose => {
-        try {
-            console.log("Connected to the Database")
-        } finally {
-            mongoose.connection.close()
-        }
+//     	await mongo().then(mongoose => {
+//         try {
+//             console.log("Connected to the Database")
+//         } finally {
+//             mongoose.connection.close()
+//         }
     })
 })
 
