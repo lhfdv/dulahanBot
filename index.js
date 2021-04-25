@@ -34,7 +34,7 @@ client.on('ready', () => {
 //         } finally {
 //             mongoose.connection.close()
 //         }
-    })
+//    })
 })
 
 // client.on('ready', async () => {
