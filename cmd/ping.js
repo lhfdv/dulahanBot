@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'ping',
 	description: 'Ping!',
+	slash: true,
 	execute (msg, args) {
 		const userID = '418776618786619392'
 		const randomValidation = Math.floor(Math.random() * 10)
