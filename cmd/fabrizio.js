@@ -11,7 +11,7 @@ module.exports = {
 		async execute (msg, args) { 
 
 		//Tenor API
-		let url = `https://api.tenor.com/v1/search?q=bring+pizza&key=${process.env.TENORKEY}&limit=50`;
+		let url = `https://api.tenor.com/v1/search?q=delicious+pizza&key=${process.env.TENORKEY}&limit=50`;
 		let response = await fetch (url)
 		let json = await response.json()
 
