@@ -25,6 +25,45 @@ const http = require('http');http.createServer((req, res) => {
         res.end();
     }).listen(4000);
 
+url = "https://discord.com/api/v8/applications/772597681800478732/commands"
+
+json = {
+    "name": "blep",
+    "description": "Send a random adorable animal photo",
+    "options": [
+        {
+            "name": "animal",
+            "description": "The type of animal",
+            "type": 3,
+            "required": True,
+            "choices": [
+                {
+                    "name": "Dog",
+                    "value": "animal_dog"
+                },
+                {
+                    "name": "Cat",
+                    "value": "animal_cat"
+                },
+                {
+                    "name": "Penguin",
+                    "value": "animal_penguin"
+                }
+            ]
+        },
+        {
+            "name": "only_smol",
+            "description": "Whether to show only baby animals",
+            "type": 5,
+            "required": False
+        }
+    ]
+}
+
+headers = {
+    "Authorization": token
+}
+
 client.on('ready', () => { 
 	console.log('O pai tá online!'); 
 	client.user.setActivity('theHunter: Call of the Wild');
