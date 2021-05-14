@@ -8,20 +8,20 @@ module.exports = {
     usage: 'hug',
     accessableby: 'Everyone',
     aliases: ['abraçar'],
-		async execute (msg, args) { 
+		async execute (message, args) { 
 
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = message.mentions.users.first();
 
-		if(!msg.mentions.users.first()) return msg.channel.send('ERRO: Sem menção para abraçar');
+		if(!message.mentions.users.first()) return message.channel.send('ERRO: Sem menção para abraçar');
 
-		if(taggedUser.id === msg.author.id) return msg.channel.send('ERRO: Escolha outro usuário para abraçar');
+		if(taggedUser.id === message.author.id) return message.channel.send('ERRO: Escolha outro usuário para abraçar');
 
 		//Tenor API
 		let url = `https://api.tenor.com/v1/search?q=anime+hug&key=${process.env.TENORKEY}&limit=50`;
 		let response = await fetch (url);
 		let json = await response.json();
 
-		const description = `${msg.author} abraça ${taggedUser}`;
+		const description = `${message.author} abraça ${taggedUser}`;
 		const index = Math.floor(Math.random() * json.results.length);
 		const indexAnswer = Math.floor(Math.random() * json.results.length);
 		const urlImg = (json.results[index].media[0].gif.url);
@@ -34,7 +34,7 @@ module.exports = {
 			emoji: '🔁',
 			name: 'Hug Answer',
 			color: `${embedColorAnswer}`,
-			description: `${taggedUser} abraça ${msg.author} de volta!`,
+			description: `${taggedUser} abraça ${message.author} de volta!`,
 			image: `${urlImgAnswer}`,
 		}]
 
@@ -44,18 +44,18 @@ module.exports = {
 			.setColor(embedColor)
 			.setImage(`${urlImg}`)
 
-		msg.channel.send(embed).then((embedMsg) => {
+		message.channel.send(embed).then((embedmessage) => {
 			//Send reactions for each emojis
 			const emojis = answer.map((cat) => cat.emoji);
-			emojis.forEach((emoji) => embedMsg.react(emoji));
+			emojis.forEach((emoji) => embedmessage.react(emoji));
 	
 			//The filter checks if the reaction emoji is in the category
 			//It also checks if the person who reacted shares the same id
-			//As the author of the original msg
+			//As the author of the original message
 			const filter = (reaction, user) =>
 				emojis.includes(reaction.emoji.name) && user.id === taggedUser.id;
 	
-			const collector = embedMsg.createReactionCollector(filter, {
+			const collector = embedmessage.createReactionCollector(filter, {
 				//Max number of reactions is the number of category
 				max: emojis.length,
 				//It won't accept reactions after 60 seconds
@@ -70,7 +70,7 @@ module.exports = {
 			);
 		
 			if (!selectedAnswer) {
-				msg.channel.send('Erro');
+				message.channel.send('Erro');
 			}
 
 			const embed = new Discord.MessageEmbed()
@@ -78,7 +78,7 @@ module.exports = {
 				.setDescription(selectedAnswer.description)
 				.setImage(selectedAnswer.image)
 
-			msg.channel.send(embed);
+			message.channel.send(embed);
 		});
 	});
 }};

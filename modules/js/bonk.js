@@ -1,13 +1,13 @@
 module.exports = {
 	name: 'bonk',
 	description: 'bonk',
-	execute(msg) { 
+	execute(message) { 
 
-		if(!msg.mentions.users.first()) return msg.channel.send("ERRO: Sem menção para bonkar");
+		if(!message.mentions.users.first()) return message.channel.send("ERRO: Sem menção para bonkar");
 
-		const taggedUser = msg.mentions.users.first();
-		const descriptionSelf = `${msg.author} se bonka`;
-		const descriptionTagged = `${msg.author} bonka ${taggedUser}`;
+		const taggedUser = message.mentions.users.first();
+		const descriptionSelf = `${message.author} se bonka`;
+		const descriptionTagged = `${message.author} bonka ${taggedUser}`;
 
 		const imgListBonk = [
 			'https://i.imgur.com/uqzIUSX.gif',
@@ -26,14 +26,14 @@ module.exports = {
 			'https://i.imgur.com/FjnNygg.gif'
 		]
 
-		if ( taggedUser.id === msg.author.id || !taggedUser.id ) {
-			msg.channel.send({ embed: { 
+		if ( taggedUser.id === message.author.id || !taggedUser.id ) {
+			message.channel.send({ embed: { 
 			color: 0xff9900, 
 			description: descriptionSelf, 
 			image: { url: imgListSelfBonk[Math.floor(Math.random() * imgListSelfBonk.length)] },
 			}})
 		} else {
-			msg.channel.send({ embed: { 
+			message.channel.send({ embed: { 
 			color: 0xff9900, 
 			description: descriptionTagged, 
 			image: { url: imgListBonk[Math.floor(Math.random() * imgListBonk.length)] },

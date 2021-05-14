@@ -5,10 +5,7 @@ module.exports = {
 	name: 'fabrizio',
     description: 'Traga la pizzione',
     category: 'Emotes',
-    usage: 'fabrizio',
-    accessableby: 'Everyone',
-    aliases: ['lambesis'],
-		async execute (msg, args) { 
+	async execute (message, args) { 
 
 		//Tenor API
 		let url = `https://api.tenor.com/v1/search?q=delicious+pizza&key=${process.env.TENORKEY}&limit=50`;
@@ -24,6 +21,6 @@ module.exports = {
 			.setColor(embedColor)
 			.setImage(`${urlImg}`)
 
-		msg.channel.send(embed)
+		message.channel.send(embed)
 	}
 }

@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'mecânica mata jo',
 	description: 'Mecânica Mata Jo',
-	execute(msg) {
-        msg.channel.send('Morri');
+	execute(message) {
+        message.channel.send('Morri');
 	},
 };

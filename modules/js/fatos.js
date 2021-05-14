@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'fatos harumisticos',
 	description: 'Fatos Harumisticos',
-	execute (msg) {
+	execute (message) {
 		const phrases = [
 			'Minha Viera Marronzinha :notes:',
 			'Coisa boa é Viera servindo Mocha Branco no Starbucks',
@@ -28,6 +28,6 @@ module.exports = {
 			'Sazória ou Sassoria?'
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
-		msg.channel.send(response);
+		message.channel.send(response);
 	},
 };
