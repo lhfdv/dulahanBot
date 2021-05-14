@@ -128,7 +128,7 @@ client.on('ready', () => {
                 .setDescription(description)
                 .setAuthor(interaction.member.user.username);
 
-            client.api.interactions(interaction.id, interaction.token).callback.post({
+            client.api.interactions(interaction.id, interaction.process.env.token).callback.post({
                 data: {
                     type: 4,
                     data: await createAPIMessage(interaction, embed)
