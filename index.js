@@ -41,6 +41,51 @@ client.on('ready', () => {
 //     messageCount(client);
 // })
 
+import requests
+
+
+url = "https://discord.com/api/v8/applications/772597681800478732/commands"
+
+json = {
+    "name": "blep",
+    "description": "Send a random adorable animal photo",
+    "options": [
+        {
+            "name": "animal",
+            "description": "The type of animal",
+            "type": 3,
+            "required": True,
+            "choices": [
+                {
+                    "name": "Dog",
+                    "value": "animal_dog"
+                },
+                {
+                    "name": "Cat",
+                    "value": "animal_cat"
+                },
+                {
+                    "name": "Penguin",
+                    "value": "animal_penguin"
+                }
+            ]
+        },
+        {
+            "name": "only_smol",
+            "description": "Whether to show only baby animals",
+            "type": 5,
+            "required": False
+        }
+    ]
+}
+
+# For authorization, you can use either your bot token
+headers = {
+    "Authorization": process.env.token
+}
+
+r = requests.post(url, headers=headers, json=json)
+
 client.on('message', msg => {
 
     if ( msg.author.bot ) return
