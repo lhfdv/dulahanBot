@@ -35,7 +35,6 @@ json = {
             "name": "animal",
             "description": "The type of animal",
             "type": 3,
-            "required": True,
             "choices": [
                 {
                     "name": "Dog",
@@ -55,13 +54,12 @@ json = {
             "name": "only_smol",
             "description": "Whether to show only baby animals",
             "type": 5,
-            "required": False
         }
     ]
 }
 
 headers = {
-    "Authorization": token
+    "Authorization": process.env.token
 }
 
 client.on('ready', () => { 
