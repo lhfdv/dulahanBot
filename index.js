@@ -83,14 +83,14 @@ const client = new discord.Client();
 client.on('ready', () => {
     console.log('ready');
 
-    client.api.applications(client.user.id).guilds('699722023508770836').commands.post({
+    client.api.applications(client.user.id).guilds('733378438903365662').commands.post({
         data: {
             name: "hello",
             description: "Replies with Hello World!"
         }
     });
 
-    client.api.applications(client.user.id).guilds('699722023508770836').commands.post({
+    client.api.applications(client.user.id).guilds('733378438903365662').commands.post({
         data: {
             name: "echo",
             description: "Echos your text as an embed!",
@@ -111,7 +111,7 @@ client.on('ready', () => {
         const args = interaction.data.options;
 
         if(command == 'hello') {
-            client.api.interactions(interaction.id, interaction.token).callback.post({
+            client.api.interactions(interaction.id, interaction.process.env.token).callback.post({
                 data: {
                     type: 4,
                     data: {
