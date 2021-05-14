@@ -60,6 +60,7 @@ client.on('ready', () => {
       })
 
     })
+  })
 	
 //     	await mongo().then(mongoose => {
 //         try {
