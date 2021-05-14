@@ -15,22 +15,19 @@ client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./cmd').filter(file => file.endsWith('.js'));
 
 for ( const file of commandFiles ) {
-    const command = require(`./cmd/${file}`)
-    client.commands.set(command.name, command)
+    const command = require(`./cmd/${file}`);
+    client.commands.set(command.name, command);
 }
 
 const http = require('http');http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-type': 'text/plain' })
-        res.write('Hey')
-        res.end()
-    }).listen(4000)
-
+    res.writeHead(200, { 'Content-type': 'text/plain' });
+        res.write('Hey');
+        res.end();
+    }).listen(4000);
 
 client.on('ready', () => { 
-	console.log('O pai tá online!');
-	client.user.setActivity('theHunter: Call of the Wild')
-})
-	
+	console.log('O pai tá online!'); 
+	client.user.setActivity('theHunter: Call of the Wild');
 //     	await mongo().then(mongoose => {
 //         try {
 //             console.log("Connected to the Database")
@@ -38,14 +35,7 @@ client.on('ready', () => {
 //             mongoose.connection.close()
 //         }
 //    })
-
-async function createAPIMessage(interaction, content) {
-	const apiMessage = await discord.APIMessage.create(client.channels.resolve(interaction.channel_id), content)
-	.resolveData(0)
-	.resolveFiles();
-
-  return {...apiMessage.data, files: apiMessage.files }
-}
+})
 
 // client.on('ready', async () => {
 //     messageCount(client);
@@ -75,3 +65,5 @@ client.on('message', msg => {
     }
 	
 });
+
+client.login(process.env.token)
