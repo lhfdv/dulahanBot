@@ -29,7 +29,7 @@ client.on('ready', () => {
         if(command === "echo") {
             const description = args.find(arg => arg.name.toLowerCase() == "content").value;
             const embed = new Discord.MessageEmbed()
-                .setTitle("Echo!")
+                .setTitle("Echo")
                 .setDescription(description)
                 .setAuthor(interaction.member.user.username);
 
