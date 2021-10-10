@@ -29,7 +29,8 @@ module.exports = {
 			'FF13 é muito ruim',
 			'FF15 o pior da franquia, nem deveria ser FF',
 			'Não existe Viera Male',
-			'Que merda, Fernando'
+			'Que merda, Fernando',
+			'Marrom com Vermelho'
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
 		message.channel.send(response);
