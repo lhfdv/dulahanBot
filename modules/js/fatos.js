@@ -25,7 +25,11 @@ module.exports = {
 			'Verdade Harumi',
 			'KKKKKKKKKKKK ELES JOGAM JOGUINHOS',
 			'Mocha Branco é muito bom',
-			'Sazória ou Sassoria?'
+			'Sazória ou Sassoria?',
+			'FF13 é muito ruim',
+			'FF15 o pior da franquia, nem deveria ser FF',
+			'Não existe Viera Male',
+			'Que merda, Fernando'
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
 		message.channel.send(response);
