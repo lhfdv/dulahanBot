@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'Bleach',
-	description: 'Bleach',
+	name: 'bleach',
+	description: 'bleach',
 	execute (message) {
 		const phrases = [
 			'Bleach é muito ruim',
