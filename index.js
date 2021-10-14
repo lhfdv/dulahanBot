@@ -63,7 +63,7 @@ client.on('message', message => {
         command = args.shift().toLowerCase()
     } else if ( message.content.toLowerCase().includes('victorizar') ){
         client.commands.get('victorizar').execute(message, args)
-    } else if ( message.content.toLowerCase().includes('bleach') ){
+    } else if ( message.content.toLowerCase().includes('bleach') || message.content.toLowerCase().includes('bl3ach') || message.content.toLowerCase().includes('ble4ch') || message.content.toLowerCase().includes('3l34ch') || message.content.toLowerCase().includes('3leach') || message.content.toLowerCase().includes('3l3ach') || message.content.toLowerCase().includes('3le4ch') || message.content.toLowerCase().includes('3l34ch') ){
         client.commands.get('bleach').execute(message, args)
     } else {
         args = message.content.toString()
