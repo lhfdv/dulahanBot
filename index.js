@@ -58,7 +58,7 @@ client.on('message', message => {
     let command = ''
     let args = ''
 
-    if ( message.content.includes('@') || message.content.includes('bonk') ) {
+    if ( message.content.includes('@') || message.content.includes('bonk') || message.content.includes('Bleach') ) {
         args = message.content.trim().split(/ +/)
         command = args.shift().toLowerCase()
     } else if ( message.content.toLowerCase().includes('victorizar') ){
