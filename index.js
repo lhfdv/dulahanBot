@@ -18,7 +18,7 @@ for ( const file of commandFiles ) {
 
 client.on('ready', () => {
     console.log('O pai tá online!'); 
-	client.user.setActivity('theHunter: Call of the Wild', { type: "Streaming", url: "www.pudim.com.br" });
+	client.user.setActivity('theHunter: Call of the Wild', { type: "STREAMING", url: "https://www.twitch.tv/jo_reaper" });
 
     client.api.applications(client.user.id).guilds('733378438903365662').commands.post(commandData);
 
