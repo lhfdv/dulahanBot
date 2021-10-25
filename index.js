@@ -84,7 +84,7 @@ client.on('message', message => {
         return
     }
 	
-
+     args = message.content.toString();
 
       switch (args[0]){
             case 'play':
