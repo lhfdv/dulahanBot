@@ -56,7 +56,7 @@ async function createAPIMessage(interaction, content) {
 
 client.on('message', message => {
 
-    //if ( message.author.bot ) return test
+    if ( message.author.bot ) return
 
     let command = ''
     let args = ''
