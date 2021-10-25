@@ -26,7 +26,7 @@ client.on('ready', () => {
 	client.user.setActivity('theHunter: Call of the Wild', { type: "STREAMING", url: "https://www.twitch.tv/jo_reaper" });
 
     client.api.applications(client.user.id).guilds('733378438903365662').commands.post(commandData);
-
+//test
     client.ws.on('INTERACTION_CREATE', async interaction => {
         const command = interaction.data.name.toLowerCase();
         const args = interaction.data.options;
