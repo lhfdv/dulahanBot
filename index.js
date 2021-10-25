@@ -72,7 +72,6 @@ client.on('message', message => {
 	    client.commands.get('bleach').execute(message, args)
   } else if ( message.member.displayName.toLowerCase().includes('bleach') || message.member.displayName.toLowerCase().includes('leach') || message.member.displayName.toLowerCase().includes('bleac') || message.author.username.toLowerCase().includes('bleach') || message.author.tag.toLowerCase().includes('bleach') ){
     client.commands.get('bleach').execute(message, args)
-    }
     } else {
         args = message.content.toString()
         command = args.toLowerCase()
