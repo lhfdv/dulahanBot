@@ -88,14 +88,14 @@ command = args.toLowerCase();
 
       switch (args[0]){
             case 'play':
-                function play(connection, msg){
+                function play(connection, message){
                     var server = servers[message.guild.id];
                     server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}));
                     server.queue.shift();
                     server.dispatcher.on("end", function(){
                         if(server.queue[0]){
                             message.channel.send("Tocando música pa nóis");
-                            play(connection, msg);
+                            play(connection, message);
                         } else {
                             connection.disconnect();
                         }
@@ -108,7 +108,7 @@ command = args.toLowerCase();
                 if(!servers[message.guild.id]) servers[message.guild.id] = {
                     queue: []
                 }
-                var server = servers[msg.guild.id];
+                var server = servers[message.guild.id];
 
                 server.queue.push(args[1]);
 
