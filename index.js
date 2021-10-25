@@ -5,8 +5,8 @@ const fs = require('fs')
 const commandData = require('./commands.js')
 const ytdl = require("ytdl-core");
 require('dotenv').config()
-var version = '1.2';
-var servers = {};
+
+let servers = {};
 
 client.commands = new Discord.Collection();
 client.modules = new Discord.Collection();
