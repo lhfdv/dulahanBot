@@ -141,9 +141,8 @@ client.on('message', message => {
                     //console.log('To parando');
                 }
                 if(msg.guild.connection) msg.guild.voice.connection.disconnect();
-            break;
+            	break;
             }
-    }
 	
 });
 
