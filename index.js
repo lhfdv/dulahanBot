@@ -94,7 +94,7 @@ command = args.toLowerCase();
                     server.queue.shift();
                     server.dispatcher.on("end", function(){
                         if(server.queue[0]){
-                            msg.channel.send("Tocando música pa nóis");
+                            message.channel.send("Tocando música pa nóis");
                             play(connection, msg);
                         } else {
                             connection.disconnect();
