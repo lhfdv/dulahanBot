@@ -84,6 +84,7 @@ client.on('message', message => {
     }
 	
      args = message.content.toString();
+command = args.toLowerCase();
 
       switch (args[0]){
             case 'play':
