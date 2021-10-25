@@ -8,8 +8,6 @@ require('dotenv').config()
 var version = '1.2';
 var servers = {};
 
-let args = msg.content.substring(PREFIX.length).split(" ");
-
 client.commands = new Discord.Collection();
 client.modules = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
