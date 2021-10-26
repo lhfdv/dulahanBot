@@ -10,8 +10,8 @@ module.exports = {
 			'Mas você sabe que Bleach é ruim, pô',
 			'Bl𝖾ach é muito ruim',
 			'Bl𝖾ach sempre foi ruim',
-			'Bl𝖾ach é MT RUIM',
-			'Bl𝖾ach é ruim',
+			'Bl𝚎ach é MT RUIM',
+			'Bl𝚎ach é ruim',
 			'Mas você sabe que Bl𝖾ach é ruim, pô',
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
