@@ -20,6 +20,10 @@ module.exports = {
 			'B𝚕𝚎ach é MT RUIM',
 			'B𝚕𝚎ach é ruim',
 			'Mas você sabe que B𝚕𝖾ach é ruim, pô',
+			'B𝚕𝖾ac𝚑 sempre foi ruim',
+			'B𝚕𝚎ac𝚑 é MT RUIM',
+			'B𝚕𝚎ac𝚑 é ruim',
+			'Mas você sabe que B𝚕𝖾ac𝚑 é ruim, pô',
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
 		message.channel.send(response);
