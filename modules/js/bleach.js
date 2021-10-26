@@ -3,10 +3,10 @@ module.exports = {
 	description: 'bleach',
 	execute (message) {
 		const phrases = [
-			'Bleach é muito ruim',
+			'Ble𝚊ch é muito ruim',
       'Bleach sempre foi ruim',
 			'Bleach é MT RUIM',
-			'Bleach é ruim',
+			'Ble𝚊ch é ruim',
 			'Mas você sabe que Bleach é ruim, pô',
 			'Bl𝖾ach é muito ruim',
 			'Bl𝖾ach sempre foi ruim',
