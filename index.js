@@ -62,6 +62,8 @@ client.on('message', message => {
     let args = ''
     
     const member = message.mentions.members.first()
+    
+    message = message.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     if ( message.content.includes('@') || message.content.includes('bonk') ) {
         args = message.content.trim().split(/ +/)
