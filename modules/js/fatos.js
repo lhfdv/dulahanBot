@@ -30,6 +30,7 @@ module.exports = {
 			'Não existe Viera Male',
 			'Que merda, Fernando',
 			'Marrom com Vermelho',
+			'Na minha opinião',
 			'Os caras só assiste anime ruim, impressionante',
 			'Ninja é para você, bom gamer. É para você aprender a ser plenamente livre. A colocar a sua dignidade de gamer acima da sua satisfação sexual e do seu ego e suas vaidades fúteis. Ninja é para te ajudar a se tornar um gamer melhor e a lutar por você mesmo, pelo que você quer, pelo que te faz feliz, pelos seus objetivos, pelo que você acredita, para poder praticar seus hobbies, para poder viver sem ter que atender a padrões que só te colocam numa covarde desvantagem, ao passo em que você está inserido em uma sociedade que valoriza healers e tanks. Você deve se desenvolver em todos os aspectos e tanto quanto possível, mas que isso seja feito visando a sua satisfação pessoal, a sua melhora como gamer, a sua capacidade de ajudar outros a seguirem o mesmo caminho e ajudar a reerguer a habilidade dos ninjas. Enquanto você ficar nesse pensamento de jogar com healer ou tank é melhor, você estará preso às mesmas correntes que estava antes. Você não será um bom ninja na plena acepção da palavra.'
 		]
