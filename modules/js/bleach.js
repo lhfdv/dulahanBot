@@ -2,8 +2,6 @@ module.exports = {
 	name: 'bleach',
 	description: 'bleach',
 	execute (message) {
-		message.channel.overwritePermissions('600046504056455208', { deny: 'SEND_MESSAGES'})
-		message.channel.overwritePermissions('550504173125500931', { deny: 'SEND_MESSAGES'})
 		const selectE = ['e', '𝖾', '𝚎']
 		const selectA = ['a', '𝖺', '𝚊']
 		const selectL = ['l', '𝚕', '𝗅']
@@ -19,7 +17,5 @@ module.exports = {
 		]
 		const response = phrases[Math.floor(Math.random() * phrases.length)];
 		message.channel.send(response);
-		message.channel.overwritePermissions('600046504056455208', { allow: 'SEND_MESSAGES'})
-		message.channel.overwritePermissions('550504173125500931', { allow: 'SEND_MESSAGES'})
 	},
 };
