@@ -46,6 +46,7 @@ client.on('ready', () => {
     });
 });
 
+
 async function createAPIMessage(interaction, content) {
     const apiMessage = await Discord.APIMessage.create(client.channels.resolve(interaction.channel_id), content)
         .resolveData()
@@ -58,17 +59,21 @@ client.on('message', message => {
 
     if ( message.author.bot ) return
 
+    message = messagec
+
     let command = ''
     let args = ''
     
     const member = message.mentions.members.first()
+    
+    let bleachCommand = message.content.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
     
     if ( message.content.includes('@') || message.content.includes('bonk') ) {
         args = message.content.trim().split(/ +/)
         command = args.shift().toLowerCase()
     } else if ( message.content.toLowerCase().includes('victorizar') ){
         client.commands.get('victorizar').execute(message, args)
-    } else if ( message.content.toLowerCase().includes('bleach') || message.content.toLowerCase().includes('bl3ach') || message.content.toLowerCase().includes('ble4ch') || message.content.toLowerCase().includes('3l34ch') || message.content.toLowerCase().includes('3leach') || message.content.toLowerCase().includes('3l3ach') || message.content.toLowerCase().includes('3le4ch') || message.content.toLowerCase().includes('3l34ch') || message.content.toLowerCase().includes('b l e a c h') || message.content.toLowerCase().includes('b leach') || message.content.toLowerCase().includes('bleac h') || message.content.toLowerCase().includes('ble ach') || message.content.toLowerCase().includes('blea ch') || message.content.toLowerCase().includes('blea ch') || message.content.toLowerCase().includes('bl each') || message.content.toLowerCase().includes('bl ea ch') || message.content.toLowerCase().includes('b.leach') || message.content.toLowerCase().includes('bleac.h') || message.content.toLowerCase().includes('blea.ch') || message.content.toLowerCase().includes('bleahc') || message.content.toLowerCase().includes('blaech') || message.member.displayName.toLowerCase().includes('bl3ach') || message.member.displayName.toLowerCase().includes('ble4ch') || message.member.displayName.toLowerCase().includes('3l34ch') || message.member.displayName.toLowerCase().includes('3leach') || message.member.displayName.toLowerCase().includes('3l3ach') || message.member.displayName.toLowerCase().includes('3le4ch') || message.member.displayName.toLowerCase().includes('3l34ch') || message.member.displayName.toLowerCase().includes('b l e a c h') || message.member.displayName.toLowerCase().includes('b leach') || message.member.displayName.toLowerCase().includes('bleac h') || message.member.displayName.toLowerCase().includes('ble ach') || message.member.displayName.toLowerCase().includes('blea ch') || message.member.displayName.toLowerCase().includes('blea ch') || message.member.displayName.toLowerCase().includes('bl each') || message.member.displayName.toLowerCase().includes('bl ea ch') || message.member.displayName.toLowerCase().includes('b.leach') || message.member.displayName.toLowerCase().includes('bleac.h') || message.member.displayName.toLowerCase().includes('blea.ch') || message.member.displayName.toLowerCase().includes('bleahc') || message.member.displayName.toLowerCase().includes('blaech') ){
+    } else if ( bleachCommand.includes('bleach') || bleachCommand.includes('bl3ach') || bleachCommand.includes('ble4ch') || bleachCommand.includes('3l34ch') || bleachCommand.includes('3leach') || bleachCommand.includes('3l3ach') || message.content.toLowerCase().includes('3le4ch') || message.content.toLowerCase().includes('3l34ch') || message.content.toLowerCase().includes('b l e a c h') || message.content.toLowerCase().includes('b leach') || message.content.toLowerCase().includes('bleac h') || message.content.toLowerCase().includes('ble ach') || message.content.toLowerCase().includes('blea ch') || message.content.toLowerCase().includes('blea ch') || message.content.toLowerCase().includes('bl each') || message.content.toLowerCase().includes('bl ea ch') || message.content.toLowerCase().includes('b.leach') || message.content.toLowerCase().includes('bleac.h') || message.content.toLowerCase().includes('blea.ch') || message.content.toLowerCase().includes('bleahc') || message.content.toLowerCase().includes('blaech') || message.member.displayName.toLowerCase().includes('bl3ach') || message.member.displayName.toLowerCase().includes('ble4ch') || message.member.displayName.toLowerCase().includes('3l34ch') || message.member.displayName.toLowerCase().includes('3leach') || message.member.displayName.toLowerCase().includes('3l3ach') || message.member.displayName.toLowerCase().includes('3le4ch') || message.member.displayName.toLowerCase().includes('3l34ch') || message.member.displayName.toLowerCase().includes('b l e a c h') || message.member.displayName.toLowerCase().includes('b leach') || message.member.displayName.toLowerCase().includes('bleac h') || message.member.displayName.toLowerCase().includes('ble ach') || message.member.displayName.toLowerCase().includes('blea ch') || message.member.displayName.toLowerCase().includes('blea ch') || message.member.displayName.toLowerCase().includes('bl each') || message.member.displayName.toLowerCase().includes('bl ea ch') || message.member.displayName.toLowerCase().includes('b.leach') || message.member.displayName.toLowerCase().includes('bleac.h') || message.member.displayName.toLowerCase().includes('blea.ch') || message.member.displayName.toLowerCase().includes('bleahc') || message.member.displayName.toLowerCase().includes('blaech') ){
 	    client.commands.get('bleach').execute(message, args)
   } else if ( message.member.displayName.toLowerCase().includes('bleach') || message.member.displayName.toLowerCase().includes('leach') || message.member.displayName.toLowerCase().includes('bleac') || message.author.username.toLowerCase().includes('bleach') || message.author.tag.toLowerCase().includes('bleach') ){
     		const randomValidation = Math.floor(Math.random() * 10)
