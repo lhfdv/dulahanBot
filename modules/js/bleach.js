@@ -4,7 +4,7 @@ module.exports = {
 	execute (message) {
 		const phrases = [
 			'Ble𝚊ch é muito ruim',
-      'Bleach sempre foi ruim',
+      'Ble𝚊ch sempre foi ruim',
 			'Bleach é MT RUIM',
 			'Ble𝚊ch é ruim',
 			'Mas você sabe que Bleach é ruim, pô',
