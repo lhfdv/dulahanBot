@@ -1,4 +1,4 @@
-# joBot
+# dulahanBot
 
 One of the thousands of Discord Bot made just for friends.
 
