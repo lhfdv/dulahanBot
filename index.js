@@ -20,8 +20,8 @@ for ( const file of commandFiles ) {
 }
 
 client.on('ready', () => {
-    console.log('O pai tá online!'); 
-	client.user.setActivity('theHunter: Call of the Wild', { type: "STREAMING", url: "https://www.twitch.tv/jo_reaper" });
+    console.log('Viera > Resto'); 
+	client.user.setActivity('Fanow Fantasy XIV: A Viera Reborn');
 
     client.api.applications(client.user.id).guilds('733378438903365662').commands.post(commandData);
 //test
