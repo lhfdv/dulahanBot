@@ -8,17 +8,20 @@ module.exports = {
 	async execute (message, args) { 
 
 		//Tenor API
-		let urlBasedOnWhat = `https://api.tenor.com/v1/search?q=based+on+what&key=${process.env.TENORKEY}&limit=50`;
-		let urlCringe = `https://api.tenor.com/v1/search?q=too+cringe&key=${process.env.TENORKEY}&limit=50`;
-		let response = await fetch (url)
-		let json = await response.json()
+		let urlBasedOnWhat = `https://api.tenor.com/v1/search?q=based+on+what&key=${process.env.TENORKEY}&limit=50`
+		let urlCringe = `https://api.tenor.com/v1/search?q=too+cringe&key=${process.env.TENORKEY}&limit=50`
+		let url = ''
 		
 		const randomValidation = Math.floor(Math.random() * 10)
 		if(randomValidation > 5){
-			let url = urlBasedOnWhat
+			url = urlBasedOnWhat
 		} else {
-			let url = urlCringe
+			url = urlCringe
 		}
+		
+		
+                let response = await fetch (url)
+  		let json = await response.json()
 
 		const index = Math.floor(Math.random() * json.results.length)
 		const urlImg = (json.results[index].media[0].gif.url)
