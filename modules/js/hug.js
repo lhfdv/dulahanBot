@@ -2,12 +2,12 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
-	name: 'hug',
+	name: 'abraçar',
     description: 'Hug someone',
     category: 'Emotes',
-    usage: 'hug',
+    usage: 'abraçar',
     accessableby: 'Everyone',
-    aliases: ['abraçar'],
+    aliases: ['abraçar', 'hug'],
 		async execute (message, args) { 
 
 		const taggedUser = message.mentions.users.first();
