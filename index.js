@@ -5,8 +5,6 @@ const fs = require('fs')
 const ytdl = require("ytdl-core");
 require('dotenv').config()
 
-let servers = {};
-
 client.commands = new Discord.Collection();
 client.modules = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
@@ -21,7 +19,6 @@ for ( const file of commandFiles ) {
 client.on('ready', () => {
     console.log('Viera > Resto'); 
 	client.user.setActivity('Fanow Fantasy XIV: A Viera Reborn');
-
     client.api.applications(client.user.id).guilds('733378438903365662').commands.post(commandData);
 //test
     client.ws.on('INTERACTION_CREATE', async interaction => {
@@ -56,15 +53,15 @@ async function createAPIMessage(interaction, content) {
 
 client.on('message', message => {
 
-    if ( message.author.bot && message.author.id != 600046504056455208) return
+    if ( message.author.bot ) return
 
     let command = ''
     let args = ''
     
     const member = message.mentions.members.first()
-    
-    let bleachCommand = message.content.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
-    let bleachCommandUsername = message.member.displayName.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
+//     let bleachCommand = message.content.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+//     let bleachCommandUsername = message.member.displayName.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
     
     if ( message.content.includes('@') || message.content.includes('bonk') || message.content.includes('based') || message.content.includes('B A S E D') ) {
         args = message.content.trim().split(/ +/)
@@ -86,62 +83,6 @@ client.on('message', message => {
     } catch {
         return
     }
-
-      switch (args[0]){
-            case 'play':
-                function play(connection, message){
-                    var server = servers[message.guild.id];
-                    server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}));
-                    server.queue.shift();
-                    server.dispatcher.on("end", function(){
-                        if(server.queue[0]){
-                            message.channel.send("Tocando música pa nóis");
-                            play(connection, message);
-                        } else {
-                            connection.disconnect();
-                        }
-                    })
-                }
-                if(!message.member.voice.channel){
-                    message.channel.send("Entra num canal");
-                    return;
-                }
-                if(!servers[message.guild.id]) servers[message.guild.id] = {
-                    queue: []
-                }
-                var server = servers[message.guild.id];
-
-                server.queue.push(args[1]);
-
-                if(!message.guild.voiceConnection) message.member.voice.channel.join().then(function(connection){
-                    message.channel.send("Tocando música pa nóis");
-                    play(connection, message);
-                })
-                if(!args[1]){
-                    message.channel.send("Cade o link pro pai?");
-                    return;
-                }
-            break;
-
-            case 'skip':
-                var server = servers[message.guild.id];
-                if(server.dispatcher) server.dispatcher.end();
-                message.channel.send("Pulinho da Vieira");
-            break;
-
-            case 'stop':
-                var server = servers[message.guild.id];
-                if(message.guild.voice.connection){
-                    for(var i = server.queue.length-1; i >= 0; i--){
-                        server.queue.splice(i, 2);
-                    }
-                    server.dispatcher.end();
-                    message.channel.send("Chega de música, tá chovendo aqui");
-                    //console.log('To parando');
-                }
-                if(message.guild.connection) message.guild.voice.connection.disconnect();
-            	break;
-            }
 	
 });
 
