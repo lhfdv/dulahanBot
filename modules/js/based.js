@@ -8,7 +8,7 @@ module.exports = {
 	async execute (message, args) { 
 
 		//Tenor API
-		let urlBasedOnWhat = `https://api.tenor.com/v1/search?q=based+on+what&key=${process.env.TENORKEY}&limit=50`
+		let urlBasedOnWhat = `https://api.tenor.com/v1/search?q="based+on+what"&key=${process.env.TENORKEY}&limit=50`
 		let urlCringe = `https://api.tenor.com/v1/search?q=too+cringe&key=${process.env.TENORKEY}&limit=50`
 		let url = ''
 		
