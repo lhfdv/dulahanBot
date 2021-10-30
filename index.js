@@ -67,8 +67,8 @@ client.on('message', message => {
     let bleachCommand = message.content.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
     let bleachCommandUsername = message.member.displayName.normalize("NFKC").replace(/[\u0300-\u036f]/g, "").toLowerCase()
     
-    if ( message.content.includes('@') || message.content.includes('bonk') ) {
-        args = message.content.trim().split(/ +/)
+    if ( message.content.includes('@') || message.content.includes('bonk') || message.content.includes('based')  ) {
+        args = message.content.trim().split(/ +/).replace(/\s/g, '');
         command = args.shift().toLowerCase()
     } else if ( message.content.toLowerCase().includes('victorizar') ){
         client.commands.get('victorizar').execute(message, args)
