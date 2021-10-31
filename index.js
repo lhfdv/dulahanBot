@@ -74,7 +74,7 @@ client.on('message', message => {
 //     		const randomValidation = Math.floor(Math.random() * 10)
 // 		if(randomValidation > 8) client.commands.get('bleach').execute(message, args)
     } else {
-        args = message.content.toString().replace(/\s/g, '');
+        args = message.content.toString()
         command = args.toLowerCase()
     }
 
