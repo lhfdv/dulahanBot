@@ -8,7 +8,7 @@ module.exports = {
 		if(randomValidation > 5){
 			if(message.author.id === userID) { message.channel.send('Sossega') }
 
-			if(message.author.id != userID) { message.channel.send('Pong') }
+			if(message.author.id != userID) { message.channel.send('Pong1') }
 		} else {
 			message.channel.send('Pong')
 		}
