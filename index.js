@@ -80,6 +80,7 @@ client.on('message', (message, newMember) => {
     }
 
     member = newMember;
+    if (newMember.user.bot) return;
     
     activityLength = newMember.member.presence.activities.length;
 
@@ -107,6 +108,31 @@ client.on('message', (message, newMember) => {
         return
     }
 	
+});
+
+client.on('presenceUpdate', (newMember) => {
+    member = newMember;
+    if (newMember.user.bot) return;
+    
+    activityLength = newMember.member.presence.activities.length;
+
+    //check to see if the user has an activities, and if so, how many
+    if (activityLength >0 ){
+        console.log("member has " + activityLength + " activities");
+
+        for (let i = 0; i < activityLength; i++) {         
+          
+        //Debugging messages to the log
+        console.log("Activity in position " + i + " is " + newMember.member.presence.activities[i].name.toLowerCase());
+        //console.log("now in lower case " + newMember.member.presence.activities[0].name.toLowerCase());
+        //If you want to ban players of any other game than LOL, changer where it says league of legends to any other lowercase name of a game
+        if (newMember.member.presence.activities[i].name.toLowerCase() == "league of legends") { // Started playing.
+            channel.send(`${newMember.user.id} https://www.youtube.com/watch?v=9Deg7VrpHbM`);
+        }
+    }
+    } else {
+        console.log("member has no activities");
+    }
 });
 
 client.login(process.env.token)
