@@ -52,7 +52,7 @@ async function createAPIMessage(interaction, content) {
     return { ...apiMessage.data, files: apiMessage.files };
 }
 
-client.on('message', message => {
+client.on('message', (message, newMember) => {
 
     if ( message.author.bot ) return
 
@@ -79,17 +79,7 @@ client.on('message', message => {
         command = args.toLowerCase()
     }
 
-    try{
-        client.commands.get(command).execute(message, args);
-    } catch {
-        return
-    }
-	
-});
-
-client.on('presenceUpdate', (newMember) => {
     member = newMember;
-    if (newMember.user.bot) return;
     
     activityLength = newMember.member.presence.activities.length;
 
@@ -110,6 +100,13 @@ client.on('presenceUpdate', (newMember) => {
     } else {
         console.log("member has no activities");
     }
+
+    try{
+        client.commands.get(command).execute(message, args);
+    } catch {
+        return
+    }
+	
 });
 
 client.login(process.env.token)
